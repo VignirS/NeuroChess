@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NeuroChess</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app">
+    <header>
+      <h1>NeuroChess</h1>
+      <div class="header-btns">
+        <button id="undoBtn" disabled>Take Back</button>
+        <button id="resetBtn">Reset Board</button>
+      </div>
+    </header>
+
+    <div class="controls-bar">
+      <button id="aiToggleBtn">Play vs AI</button>
+      <div id="aiOptions" class="ai-options hidden">
+        <label class="control-label">
+          I play as
+          <select id="humanColor" class="control-select">
+            <option value="w">White</option>
+            <option value="b">Black</option>
+          </select>
+        </label>
+        <label class="control-label">
+          Difficulty
+          <select id="aiLevel" class="control-select">
+            <option value="2">Easy</option>
+            <option value="3" selected>Medium</option>
+            <option value="4">Hard</option>
+          </select>
+        </label>
+      </div>
+    </div>
+
+    <main>
+      <!-- Board column -->
+      <div class="board-section">
+        <div class="player-label" id="blackLabel">Black</div>
+        <div class="board-wrapper">
+          <div class="files-label">
+            <span>a</span><span>b</span><span>c</span><span>d</span>
+            <span>e</span><span>f</span><span>g</span><span>h</span>
+          </div>
+          <div class="board-row">
+            <div class="ranks-label">
+              <span>8</span><span>7</span><span>6</span><span>5</span>
+              <span>4</span><span>3</span><span>2</span><span>1</span>
+            </div>
+            <div id="board" class="board"></div>
+            <div class="ranks-label">
+              <span>8</span><span>7</span><span>6</span><span>5</span>
+              <span>4</span><span>3</span><span>2</span><span>1</span>
+            </div>
+          </div>
+          <div class="files-label">
+            <span>a</span><span>b</span><span>c</span><span>d</span>
+            <span>e</span><span>f</span><span>g</span><span>h</span>
+          </div>
+        </div>
+        <div class="player-label" id="whiteLabel">White</div>
+        <div id="statusMsg" class="status-msg"></div>
+      </div>
+
+      <!-- Move history column -->
+      <aside class="history-panel">
+        <div class="history-header">Move History</div>
+        <div id="moveList" class="move-list">
+          <p class="move-list-empty">No moves yet</p>
+        </div>
+      </aside>
+    </main>
+
+    <div id="dragPiece" class="drag-piece"></div>
+
+    <!-- Pawn promotion dialog -->
+    <div id="promotionOverlay" class="promotion-overlay hidden">
+      <div class="promotion-dialog">
+        <p class="promo-title">Promote pawn to</p>
+        <div id="promotionChoices" class="promotion-choices"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
